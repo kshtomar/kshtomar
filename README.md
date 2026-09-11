@@ -27,7 +27,7 @@
 
 - 🎓 **Academics**: Studying **Mathematics at the University of California, Berkeley**.
 - 💼 **Industry**: Previously **Full Stack Developer Intern** at Fabric (frontend architecture & backend testing) and Director of Web Development for **Math4All**.
-- 🔬 **Research & AI**: Built an AI diagnostic system for lung cancer nodule detection using **YOLOv8** and hallucination-free treatment guidance via **Claude + RAG** during a Mayo Clinic research mentorship.
+- 🔬 **Research & AI**: Built **[AlphaTiger](https://github.com/kshtomar/TigersDay)** (an AlphaZero-inspired Deep Neural Network + Monte Carlo Tree Search wargame engine with browser WebAssembly inference) and an AI diagnostic system for lung cancer detection using **YOLOv8** & **Claude RAG** during a Mayo Clinic research mentorship.
 - ⚡ **Beyond Code**: Competitive mathematics, competitive chess, distance running, and music.
 
 ---
@@ -45,6 +45,8 @@
   <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white" />
   <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
   <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
+  <img src="https://img.shields.io/badge/ONNX-005CED?style=flat-square&logo=onnx&logoColor=white" />
+  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=flat-square&logo=webassembly&logoColor=white" />
   <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
@@ -56,6 +58,7 @@
 
 | Project | Description | Tech Stack |
 | :--- | :--- | :--- |
+| 🐅 **[AlphaTiger: AI Wargame & Neural MCTS Engine](https://github.com/kshtomar/TigersDay)** | AlphaZero-style AI wargame simulating the historical Anglo-Mysore Wars with 148-bit binary state representations, 959 action space, PyTorch self-play training, and 100% client-side WebAssembly MCTS neural inference. | `PyTorch` `ONNX WebAssembly` `MCTS` `WebRTC` `FastAPI` |
 | 🫁 **[AI-Driven Lung Cancer Detection](https://www.acsef.org/copy-of-acsef-2025)** | Diagnostic application using YOLOv8 for lung nodule detection and Claude v3 with RAG for treatment planning with zero hallucinations. | `Python` `YOLOv8` `Claude API` `RAG` |
 | 🏎️ **[Autonomous FTC Car](https://github.com/Future14473)** | Autonomous navigation and intake mechanisms with Roadrunner path following and PID closed-loop tuning. | `Java` `Robotics` `Control Systems` |
 | 🌐 **[Math4All Platform](https://www.math4all.org/)** | Full-stack platform infrastructure and educational tooling developed for statewide student outreach. | `React` `Node.js` `Cloud Deployment` |
