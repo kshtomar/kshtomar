@@ -9,7 +9,7 @@
   <tr>
     <td width="58%" valign="top">
 
-### 🚀 Flagship Projects
+### Flagship Projects
 
 - **[AlphaTiger: Neural Wargame & MCTS Engine](https://github.com/kshtomar/TigersDay)**  
   AlphaZero-inspired AI wargame simulating the historical Anglo-Mysore Wars. Compresses game state into a 148-bit boolean vector for sub-millisecond MCTS branch evaluation in browser WebAssembly via ONNX Runtime.  
@@ -19,16 +19,16 @@
   Clinical diagnostic pipeline developed during a Mayo Clinic research mentorship. Couples YOLOv8 for lung nodule detection with Claude RAG for hallucination-free clinical guidance and treatment planning.  
   <sub>`Python` `YOLOv8` `Claude API` `RAG`</sub>
 
-### 👨‍💻 Background & Focus
+### Background & Focus
 
-- 🎓 **Academics**: Mathematics at **UC Berkeley** (algorithms & AI).
-- 💼 **Experience**: Full Stack Developer Intern at **Fabric** (frontend architectures & backend testing).
-- ♟️ **Interests**: Competitive mathematics, competitive chess, distance running, and music.
+- **Academics**: Mathematics at **UC Berkeley** (algorithms & AI).
+- **Experience**: Full Stack Developer Intern at **Fabric** (frontend architectures & backend testing).
+- **Interests**: Competitive mathematics, competitive chess, distance running, and music.
 
     </td>
     <td width="42%" valign="top">
 
-### 💻 Core Stack
+### Core Stack
 
 - **Languages & Systems:**  
   `Python` • `C++` • `Java` • `TypeScript` • `WebAssembly` • `SQL`
@@ -39,16 +39,16 @@
 - **Web & Infrastructure:**  
   `React` • `Next.js` • `FastAPI` • `AWS` • `Docker`
 
-### ⚡ Recent Public Activity
+### Recent Public Activity
 <!-- START_SECTION:activity -->
-- 🚀 Actively coding & building projects on GitHub! Check out my pinned repositories above.
+- Actively coding and building projects on GitHub. Check out my pinned repositories above.
 <!-- END_SECTION:activity -->
 
     </td>
   </tr>
 </table>
 
-### 🐍 Contribution Activity
+### Contribution Activity
 
 <div align="center">
   <picture>
@@ -63,7 +63,7 @@
 <div align="center">
 <sub>
 <!-- START_SECTION:updated_at -->
-⚡ *Automated profile layers running via GitHub Actions • Last synced: 2026-09-11 08:44 UTC*
+*Automated profile layers running via GitHub Actions • Last synced: 2026-09-11 08:45 UTC*
 <!-- END_SECTION:updated_at -->
 </sub>
 </div>

@@ -57,34 +57,34 @@ def fetch_github_activity(username, max_events=5):
                 if len(first_msg) > 60:
                     first_msg = first_msg[:57] + "..."
                 first_msg = first_msg.replace("`", "")
-                line = f"🔨 Pushed {commit_count} commit{'s' if commit_count > 1 else ''} to [`{repo_name}`]({repo_url}) ({created_at})"
+                line = f"Pushed {commit_count} commit{'s' if commit_count > 1 else ''} to [`{repo_name}`]({repo_url}) ({created_at})"
         elif event_type == "PullRequestEvent":
             payload = event.get("payload", {})
             action = payload.get("action", "")
             pr = payload.get("pull_request", {})
             pr_title = pr.get("title", "")
             pr_url = pr.get("html_url", repo_url)
-            line = f"🔀 {action.capitalize()} PR [#{pr.get('number')} {pr_title}]({pr_url}) in [`{repo_name}`]({repo_url}) ({created_at})"
+            line = f"{action.capitalize()} PR [#{pr.get('number')} {pr_title}]({pr_url}) in [`{repo_name}`]({repo_url}) ({created_at})"
         elif event_type == "IssuesEvent":
             payload = event.get("payload", {})
             action = payload.get("action", "")
             issue = payload.get("issue", {})
             issue_title = issue.get("title", "")
             issue_url = issue.get("html_url", repo_url)
-            line = f"⚠️ {action.capitalize()} issue [#{issue.get('number')} {issue_title}]({issue_url}) in [`{repo_name}`]({repo_url}) ({created_at})"
+            line = f"{action.capitalize()} issue [#{issue.get('number')} {issue_title}]({issue_url}) in [`{repo_name}`]({repo_url}) ({created_at})"
         elif event_type == "WatchEvent":
-            line = f"⭐ Starred [`{repo_name}`]({repo_url}) ({created_at})"
+            line = f"Starred [`{repo_name}`]({repo_url}) ({created_at})"
         elif event_type == "CreateEvent":
             ref_type = event.get("payload", {}).get("ref_type", "repo")
             ref_name = event.get("payload", {}).get("ref", "")
             if ref_type == "repository":
-                line = f"🎉 Created repository [`{repo_name}`]({repo_url}) ({created_at})"
+                line = f"Created repository [`{repo_name}`]({repo_url}) ({created_at})"
             elif ref_type == "branch":
-                line = f"🌿 Created branch `{ref_name}` in [`{repo_name}`]({repo_url}) ({created_at})"
+                line = f"Created branch `{ref_name}` in [`{repo_name}`]({repo_url}) ({created_at})"
         elif event_type == "ForkEvent":
             forkee = event.get("payload", {}).get("forkee", {})
             fork_url = forkee.get("html_url", repo_url)
-            line = f"🍴 Forked [`{repo_name}`]({repo_url}) ({created_at})"
+            line = f"Forked [`{repo_name}`]({repo_url}) ({created_at})"
 
         if line and key not in seen:
             seen.add(key)
@@ -112,7 +112,7 @@ def fetch_blog_posts(feed_url, max_posts=4):
                 title = item.findtext("title", "Untitled").strip()
                 link = item.findtext("link", "").strip()
                 pub_date = item.findtext("pubDate", "")[:16]
-                posts.append(f"- 📝 [{title}]({link}) *({pub_date})*")
+                posts.append(f"- [{title}]({link}) *({pub_date})*")
         else:
             # Atom
             ns = {"atom": "http://www.w3.org/2005/Atom"}
@@ -121,7 +121,7 @@ def fetch_blog_posts(feed_url, max_posts=4):
                 link_elem = entry.find("atom:link", ns)
                 link = link_elem.attrib.get("href", "") if link_elem is not None else ""
                 published = entry.findtext("atom:published", namespaces=ns, default="")[:10]
-                posts.append(f"- 📝 [{title}]({link}) *({published})*")
+                posts.append(f"- [{title}]({link}) *({published})*")
         return posts
     except Exception as e:
         print(f"Error fetching blog feed: {e}")
@@ -152,7 +152,7 @@ def main():
     if activities:
         activity_md = "\n".join(f"- {act}" for act in activities)
     else:
-        activity_md = "- 🚀 Actively coding & building projects on GitHub! Check out my pinned repositories above."
+        activity_md = "- Actively coding and building projects on GitHub. Check out my pinned repositories above."
 
     readme = replace_section(
         readme,
@@ -167,7 +167,7 @@ def main():
         if posts:
             blog_md = "\n".join(posts)
         else:
-            blog_md = "*Articles coming soon! Stay tuned.*"
+            blog_md = "*Articles coming soon. Stay tuned.*"
         readme = replace_section(
             readme,
             "<!-- START_SECTION:blog -->",
@@ -177,7 +177,7 @@ def main():
 
     # 3. Update Timestamp
     now_utc = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    timestamp_md = f"⚡ *Automated profile layers running via GitHub Actions • Last synced: {now_utc}*"
+    timestamp_md = f"*Automated profile layers running via GitHub Actions • Last synced: {now_utc}*"
     readme = replace_section(
         readme,
         "<!-- START_SECTION:updated_at -->",
