@@ -1,0 +1,59 @@
+name: CI & Integrity Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Daily health check at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify Python Script Compilation
+        run: |
+          python -m py_compile .github/scripts/update_readme.py
+
+      - name: Run Automated Test Suite
+        run: |
+          python -m unittest discover -s tests -v
+
+      - name: Dry Run Profile Updater Script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/update_readme.py
+
+      - name: Notify on Failure via GitHub Issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Automated Profile CI Failed: ${context.workflow} (${new Date().toISOString().slice(0, 10)})`;
+            const body = `### Automated Integrity Checks Failed\n\nA test or validation step failed during the automated profile run.\n\n- **Commit**: ${context.sha}\n- **Workflow Run**: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\nPlease inspect the run logs for details.`;
+            try {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body
+              });
+            } catch (err) {
+              console.log("Could not create issue (check permissions):", err);
+            }
